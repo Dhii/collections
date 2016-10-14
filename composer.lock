@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/collections-abstract.git",
-                "reference": "7fe4ff4a1c41f703ee88134b4a615e54824abab3"
+                "reference": "12dbc2d480f22a7f1fe53ac7b595a8ac84d434a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/collections-abstract/zipball/7fe4ff4a1c41f703ee88134b4a615e54824abab3",
-                "reference": "7fe4ff4a1c41f703ee88134b4a615e54824abab3",
+                "url": "https://api.github.com/repos/Dhii/collections-abstract/zipball/12dbc2d480f22a7f1fe53ac7b595a8ac84d434a5",
+                "reference": "12dbc2d480f22a7f1fe53ac7b595a8ac84d434a5",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 }
             ],
             "description": "A collections library",
-            "time": "2016-10-14 17:15:45"
+            "time": "2016-10-14 20:34:41"
         },
         {
             "name": "dhii/collections-abstract-base",
