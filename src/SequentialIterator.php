@@ -18,7 +18,7 @@ class SequentialIterator extends AbstractGenericSequentialIterator implements Se
     public function __construct($iterators = null)
     {
         $this->_construct();
-        
+
         if (!is_null($iterators)) {
             $this->_addItems($iterators);
         }

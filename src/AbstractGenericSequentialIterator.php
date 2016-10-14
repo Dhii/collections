@@ -10,7 +10,7 @@ namespace Dhii\Collection;
 class AbstractGenericSequentialIterator extends AbstractIteratorCollection implements SequentialIteratorInterface
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @since [*next-version*]
      */
@@ -20,7 +20,7 @@ class AbstractGenericSequentialIterator extends AbstractIteratorCollection imple
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @since [*next-version*]
      */
@@ -30,7 +30,7 @@ class AbstractGenericSequentialIterator extends AbstractIteratorCollection imple
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      *
      * @since [*next-version*]
      */
