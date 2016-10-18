@@ -5,37 +5,40 @@ namespace Dhii\Collection\FuncTest;
 use Dhii\Collection;
 
 /**
- * Tests {@see Collection\AbstractGenericCollection}.
+ * Tests {@see Collection\DumbCollection}.
  *
  * @since [*next-version*]
  */
-class AbstractGenericCollectionTest extends \Xpmock\TestCase
+class DumbCollectionTest extends \Xpmock\TestCase
 {
     /**
      * Creates a new instance of the test subject.
      *
      * @since [*next-version*]
      *
-     * @return \Dhii\Collection\AbstractGenericCollection The new instance of the test subject.
+     * @param mixed[]|\Traversable $items The items, over which to iterate.
+     * @param callable $callback The callback to apply to each item on iteration.
+     *
+     * @return Collection\DumbCollection The new test subject instance.
      */
-    public function createInstance($items = array())
+    public function createInstance($items, $callback)
     {
-        $mock = $this->mock('Dhii\\Collection\\AbstractGenericCollection')
-                ->new($items);
+        $mock = $this->mock('Dhii\Collection\DumbCollection')
+                ->new($items, $callback);
 
         return $mock;
     }
 
     /**
-     * Tests that a correct instance of the test subject can be created.
+     * Tests whether a valid instance of the test subject can be created.
      *
      * @since [*next-version*]
      */
     public function testCanBeCreated()
     {
-        $subject = $this->createInstance();
+        $subject = $this->createInstance(array(), 'is_null');
 
-        $this->assertInstanceOf('Dhii\\Collection\\CollectionInterface', $subject, 'Subject is not a valid collection');
+        $this->assertInstanceOf('Dhii\Collection\CollectionInterface', $subject, 'Subject is not a valid callback iterator');
     }
 
     /**
