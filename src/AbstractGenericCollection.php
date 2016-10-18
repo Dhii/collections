@@ -5,24 +5,12 @@ namespace Dhii\Collection;
 /**
  * Common functionality for general purpose collections.
  *
+ * Implements {@see CollectionInterface}.
+ *
  * @since [*next-version*]
  */
-abstract class AbstractGenericCollection extends AbstractSearchableCollection implements CollectionInterface
+abstract class AbstractGenericCollection extends AbstractSearchableCollection
 {
-    /**
-     * @since [*next-version*]
-     *
-     * @param mixed[]|\Traversable $items The items to populate this collection with.
-     */
-    public function __construct($items = null)
-    {
-        $this->_construct();
-
-        if (!is_null($items)) {
-            $this->_addItems($items);
-        }
-    }
-
     /**
      * {@inheritdoc}
      *
