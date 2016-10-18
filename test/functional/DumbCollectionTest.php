@@ -16,15 +16,14 @@ class DumbCollectionTest extends \Xpmock\TestCase
      *
      * @since [*next-version*]
      *
-     * @param mixed[]|\Traversable $items The items, over which to iterate.
-     * @param callable $callback The callback to apply to each item on iteration.
+     * @param mixed[]|\Traversable $items The items for the collection
      *
      * @return Collection\DumbCollection The new test subject instance.
      */
-    public function createInstance($items, $callback)
+    public function createInstance($items)
     {
         $mock = $this->mock('Dhii\Collection\DumbCollection')
-                ->new($items, $callback);
+                ->new($items);
 
         return $mock;
     }
