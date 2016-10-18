@@ -38,7 +38,7 @@ class DumbCollectionTest extends \Xpmock\TestCase
     {
         $subject = $this->createInstance(array(), 'is_null');
 
-        $this->assertInstanceOf('Dhii\Collection\CollectionInterface', $subject, 'Subject is not a valid callback iterator');
+        $this->assertInstanceOf('Dhii\Collection\CollectionInterface', $subject, 'Subject is not a valid collection');
     }
 
     /**
