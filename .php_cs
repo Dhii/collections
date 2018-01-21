@@ -9,7 +9,7 @@ foreach ($toRemove as $_fixer) {
     if (($removeIndex = array_search($_fixer, $fixers)) === false) {
         continue;
     }
-    
+
     unset($fixers[$removeIndex]);
 }
 
@@ -18,7 +18,7 @@ foreach ($toAdd as $_fixer) {
     if (($removeIndex = array_search($_fixer, $fixers)) !== false) {
         continue;
     }
-    
+
     $fixers[] = $_fixer;
 }
 
