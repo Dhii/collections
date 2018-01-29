@@ -13,7 +13,12 @@ use Dhii\Util\Normalization\NormalizeIntCapableTrait;
 use Exception as RootException;
 
 abstract class AbstractBaseMap extends AbstractBaseContainer implements
+    /*
+     * @see https://bugs.php.net/bug.php?id=60161
+     * @since [*next-version*]
+     */
     IteratorInterface,
+    /* @since [*next-version*] */
     MapInterface
 {
     /* Basic Dhii iterator functionality.
