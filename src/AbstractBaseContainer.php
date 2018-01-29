@@ -4,6 +4,8 @@ namespace Dhii\Collection;
 
 use Dhii\Data\Container\ContainerInterface;
 use Dhii\Data\Container\CreateNotFoundExceptionCapableTrait;
+use Dhii\Data\Object\CreateDataStoreCapableTrait;
+use Dhii\Data\Object\DataStoreAwareTrait;
 use Dhii\Data\Object\GetDataCapableTrait;
 use Dhii\Data\Object\HasDataCapableTrait;
 use Dhii\Data\Object\NormalizeKeyCapableTrait;
@@ -29,6 +31,18 @@ abstract class AbstractBaseContainer implements ContainerInterface
      * @since [*next-version*]
      */
     use GetDataCapableTrait;
+
+    /* Awareness of a data store.
+     *
+     * @since [*next-version*]
+     */
+    use DataStoreAwareTrait;
+
+    /* Factory of data stores.
+     *
+     * @since [*next-version*]
+     */
+    use CreateDataStoreCapableTrait;
 
     /* Ability to normalize a data key.
      *
