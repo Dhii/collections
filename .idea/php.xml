@@ -50,13 +50,13 @@
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/dhii/normalization-helper-base" />
       <path value="$PROJECT_DIR$/vendor/dhii/collections-interface" />
-      <path value="$PROJECT_DIR$/vendor/dhii/data-key-value-aware-interface" />
-      <path value="$PROJECT_DIR$/vendor/dhii/data-path-aware-interface" />
-      <path value="$PROJECT_DIR$/vendor/dhii/data-hierarchy-interface" />
-      <path value="$PROJECT_DIR$/vendor/dhii/iterator-interface" />
       <path value="$PROJECT_DIR$/vendor/dhii/iterator-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/iterator-interface" />
       <path value="$PROJECT_DIR$/vendor/dhii/iterator-helper-base" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-hierarchy-interface" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-key-value-aware-interface" />
       <path value="$PROJECT_DIR$/vendor/dhii/iterator-abstract" />
+      <path value="$PROJECT_DIR$/vendor/dhii/data-path-aware-interface" />
       <path value="$PROJECT_DIR$/vendor/dhii/data-key-value-aware-abstract" />
     </include_path>
   </component>
