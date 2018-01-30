@@ -3,6 +3,7 @@
 namespace Dhii\Collection\FuncTest;
 
 use ArrayObject;
+use Dhii\Iterator\Exception\IteratorExceptionInterface;
 use Xpmock\TestCase;
 use Dhii\Collection\AbstractBaseMap as TestSubject;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
@@ -112,6 +113,24 @@ class AbstractBaseMapTest extends TestCase
     }
 
     /**
+     * Creates a new exception.
+     *
+     * @since [*next-version*]
+     *
+     * @param string $message The exception message.
+     *
+     * @return IteratorExceptionInterface The new exception.
+     */
+    public function createIteratorException($message = '')
+    {
+        $mock = $this->getMockBuilder('Dhii\Iterator\Exception\IteratorExceptionInterface')
+            ->setConstructorArgs([$message])
+            ->getMock();
+
+        return $mock;
+    }
+
+    /**
      * Creates a new store mock.
      *
      * @since [*next-version*]
@@ -180,5 +199,37 @@ class AbstractBaseMapTest extends TestCase
         // Iterating again to test mechanics
         $result = iterator_to_array($subject);
         $this->assertEquals($data, $result, 'Iterating over the subject 2nd time did not produce correct results');
+    }
+
+    /**
+     * Tests whether iterable functionality works as expected.
+     *
+     * @since [*next-version*]
+     */
+    public function testIterationError()
+    {
+        $data = [uniqid('key') => uniqid('val')];
+        $store = $this->createStore($data, null);
+        $exception = $this->createIteratorException('Problem iterating');
+        $innerException = $this->createException('Problem while determining next iteration');
+        $subject = $this->createInstance(['_getDataStore', '_loop'], [], true);
+        $_subject = $this->reflect($subject);
+
+        $subject->method('_getDataStore')
+            ->will($this->returnValue($store));
+        $subject->method('_loop')
+            ->will($this->throwException($innerException));
+        $subject->method('_createIteratorException')
+            ->with(
+                $this->isType('string'),
+                null,
+                $innerException,
+                $subject
+            )
+            ->will($this->returnValue($innerException));
+
+        $_subject->_construct();
+        $this->setExpectedException('Dhii\Iterator\Exception\IteratorExceptionInterface');
+        iterator_to_array($subject);
     }
 }

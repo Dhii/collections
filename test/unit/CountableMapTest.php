@@ -4,6 +4,7 @@ namespace Dhii\Collection\UnitTest;
 
 use ArrayIterator;
 use ArrayObject;
+use InvalidArgumentException;
 use Xpmock\TestCase;
 use Dhii\Collection\CountableMap as TestSubject;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
@@ -106,6 +107,24 @@ class CountableMapTest extends TestCase
     public function createException($message = '')
     {
         $mock = $this->getMockBuilder('Exception')
+            ->setConstructorArgs([$message])
+            ->getMock();
+
+        return $mock;
+    }
+
+    /**
+     * Creates a new Not Found exception.
+     *
+     * @since [*next-version*]
+     *
+     * @param string $message The exception message.
+     *
+     * @return InvalidArgumentException The new exception.
+     */
+    public function createInvalidArgumentException($message = '')
+    {
+        $mock = $this->getMockBuilder('InvalidArgumentException')
             ->setConstructorArgs([$message])
             ->getMock();
 
@@ -284,6 +303,32 @@ class CountableMapTest extends TestCase
             ->method('_setDataStore')
             ->with($store);
 
+        $subject->__construct($elements);
+    }
+
+    /**
+     * Tests that the constructor fails as expected when given invalid data.
+     *
+     * @since [*next-version*]
+     */
+    public function testConstructorFailureInvalidData()
+    {
+        $elements = uniqid('data');
+        $exception = $this->createInvalidArgumentException('Invalid data');
+        $subject = $this->createInstance(['_createInvalidArgumentException'], [], true);
+        $_subject = $this->reflect($subject);
+
+        $subject->expects($this->exactly(1))
+            ->method('_createInvalidArgumentException')
+            ->with(
+                $this->isType('string'),
+                null,
+                null,
+                $elements
+            )
+            ->will($this->returnValue($exception));
+
+        $this->setExpectedException('InvalidArgumentException');
         $subject->__construct($elements);
     }
 }
