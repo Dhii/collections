@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be51f3c2cca3b8511fa4e151a192ca5e",
+    "content-hash": "4c11bcfbda04ef999cacba8f1e8a93e8",
     "packages": [
         {
             "name": "dhii/collections-interface",
@@ -61,12 +61,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/data-container-abstract.git",
-                "reference": "965a82b12d422098c76f25a2322770dbc2503de2"
+                "reference": "af4bdda83cdb05ea26a3cb7042172dc8b82d55b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/data-container-abstract/zipball/965a82b12d422098c76f25a2322770dbc2503de2",
-                "reference": "965a82b12d422098c76f25a2322770dbc2503de2",
+                "url": "https://api.github.com/repos/Dhii/data-container-abstract/zipball/af4bdda83cdb05ea26a3cb7042172dc8b82d55b7",
+                "reference": "af4bdda83cdb05ea26a3cb7042172dc8b82d55b7",
                 "shasum": ""
             },
             "require": {
@@ -106,7 +106,7 @@
                 }
             ],
             "description": "Abstract functionality for working with data containers.",
-            "time": "2018-01-03T11:08:16+00:00"
+            "time": "2018-01-30T17:06:31+00:00"
         },
         {
             "name": "dhii/data-container-base",
