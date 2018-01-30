@@ -119,9 +119,7 @@ abstract class AbstractBaseMap extends AbstractBaseContainer implements
      */
     public function rewind()
     {
-        $iterator = $this->_getIterator();
-        $iterator->rewind();
-        $this->_setIteration($this->_createIteration($iterator->key(), $iterator->current()));
+        $this->_reset();
     }
 
     /**
@@ -156,11 +154,15 @@ abstract class AbstractBaseMap extends AbstractBaseContainer implements
     /**
      * {@inheritdoc}
      *
+     * A different reset r
+     *
      * @since [*next-version*]
      */
     protected function _reset()
     {
-        return $this->_createIteration(null, null);
+        $iterator = $this->_getIterator();
+        $iterator->rewind();
+        $this->_setIteration($this->_createIteration($iterator->key(), $iterator->current()));
     }
 
     /**
