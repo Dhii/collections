@@ -232,4 +232,31 @@ class AbstractBaseMapTest extends TestCase
         $this->setExpectedException('Dhii\Iterator\Exception\IteratorExceptionInterface');
         iterator_to_array($subject);
     }
+
+    /**
+     * Tests whether the Dhii iteration works as expected.
+     *
+     * @since [*next-version*]
+     */
+    public function testDhiiIteration()
+    {
+        $keys = [uniqid('key'), uniqid('key')];
+        $values = [uniqid('val'), uniqid('val')];
+        $data = array_combine($keys, $values);
+        $store = $this->createStore($data, null);
+        $subject = $this->createInstance(['_getDataStore'], [], true);
+        $_subject = $this->reflect($subject);
+
+        $subject->method('_getDataStore')
+            ->will($this->returnValue($store));
+
+        $_subject->_construct();
+
+        $result = [];
+        foreach ($subject as $_k => $_v) {
+            $i = $subject->getIteration();
+            $result[$i->getKey()] = $i->getValue();
+        }
+        $this->assertEquals($data, $result, 'Iterating over the subject did not produce correct results');
+    }
 }
