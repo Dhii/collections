@@ -13,6 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^5.4 | ^7.0",
+        "dhii/data-container-interface": "^0.1",
         "dhii/data-object-abstract": "^0.1",
         "dhii/data-container-base": "^0.1",
         "dhii/collections-interface": "^0.2",
