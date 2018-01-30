@@ -204,5 +204,10 @@ class CountableMapTest extends TestCase
 
         $this->assertEquals($subject->get($key1), $val1, 'Subject returned wrong value for the first key');
         $this->assertEquals($subject->get($key2), $val2, 'Subject returned wrong value for the second key');
+
+        $this->assertFalse($subject->has(uniqid('random-key')), 'Subject wrongly detected having a non-existing key');
+
+        $this->setExpectedException('Dhii\Data\Container\Exception\NotFoundException');
+        $this->assertFalse($subject->get(uniqid('random-key')), 'Subject retrieved a non-existing key');
     }
 }
