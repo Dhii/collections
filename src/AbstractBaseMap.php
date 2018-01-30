@@ -2,6 +2,7 @@
 
 namespace Dhii\Collection;
 
+use Dhii\Data\Container\ContainerInterface;
 use Dhii\Exception\CreateOutOfRangeExceptionCapableTrait;
 use Dhii\Iterator\CreateIterationCapableTrait;
 use Dhii\Iterator\CreateIteratorExceptionCapableTrait;
@@ -19,7 +20,9 @@ abstract class AbstractBaseMap extends AbstractBaseContainer implements
      */
     IteratorInterface,
     /* @since [*next-version*] */
-    MapInterface
+    MapInterface,
+    /* @since [*next-version*] */
+    ContainerInterface
 {
     /* Basic Dhii iterator functionality.
      *
