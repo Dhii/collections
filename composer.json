@@ -1,6 +1,6 @@
 {
     "name": "dhii/collections",
-    "description": "A collections library.",
+    "description": "Collection implementations",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,19 +10,42 @@
         }
     ],
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "dhii/collections-interface": "dev-wip/refactoring as dev-develop",
-        "dhii/collections-abstract": "dev-wip/refactor as dev-develop",
-        "dhii/collections-abstract-base": "dev-wip/refactor as dev-develop"
+        "php": "^5.4 | ^7.0",
+        "dhii/data-container-interface": "^0.1 | ^0.2",
+        "dhii/data-object-abstract": "^0.1",
+        "dhii/data-container-base": "^0.1",
+        "dhii/collections-interface": "^0.2",
+        "dhii/normalization-helper-base": "^0.1",
+        "dhii/iterator-interface": "^0.1",
+        "dhii/iterator-base": "0.1-alpha2",
+        "dhii/iterator-abstract": "^0.1"
     },
     "require-dev": {
-        "dhii/php-cs-fixer-config": "dev-php-5.3",
-        "phpunit/phpunit": "4.*",
-        "ptrofimov/xpmock": "^1.1"
+        "phpunit/phpunit": "^4.8",
+        "ptrofimov/xpmock": "^1.1",
+        "dhii/php-cs-fixer-config": "^0.1",
+        "codeclimate/php-test-reporter": "<=0.3.2"
     },
     "autoload": {
         "psr-4": {
-            "Dhii\\Collection\\": "src/"
+            "Dhii\\Collection\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dhii\\Collection\\UnitTest\\": "test/unit",
+            "Dhii\\Collection\\FuncTest\\": "test/functional"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "csfix": "php-cs-fixer fix -vvv"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.1.x-dev"
         }
     }
 }
